@@ -1,0 +1,152 @@
+.alertas-page {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    background: #f5f7fa;
+    min-height: 100vh;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+}
+
+.page-header h1 {
+    color: #333;
+    margin-bottom: 1rem;
+}
+
+.filtros {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.filtros button {
+    padding: 0.6rem 1.2rem;
+    background: white;
+    color: #667eea;
+    border: 2px solid #667eea;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filtros button:hover {
+    background: #667eea;
+    color: white;
+}
+
+.filtros button.active {
+    background: #667eea;
+    color: white;
+}
+
+.alertas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+}
+
+.alerta-card {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-left: 6px solid;
+    transition: all 0.3s ease;
+}
+
+.alerta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.alerta-card.buena {
+    border-color: #27ae60;
+}
+
+.alerta-card.moderada {
+    border-color: #f39c12;
+}
+
+.alerta-card.dañina {
+    border-color: #e67e22;
+}
+
+.alerta-card.peligrosa {
+    border-color: #e74c3c;
+}
+
+.alerta-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.nivel-badge {
+    padding: 0.4rem 1rem;
+    border-radius: 20px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+}
+
+.alerta-card.buena .nivel-badge {
+    background: #27ae60;
+    color: white;
+}
+
+.alerta-card.moderada .nivel-badge {
+    background: #f39c12;
+    color: white;
+}
+
+.alerta-card.dañina .nivel-badge {
+    background: #e67e22;
+    color: white;
+}
+
+.alerta-card.peligrosa .nivel-badge {
+    background: #e74c3c;
+    color: white;
+}
+
+.fecha {
+    color: #666;
+    font-size: 0.85rem;
+}
+
+.alerta-body .mensaje {
+    color: #333;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+
+.alerta-details {
+    background: #f9f9f9;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.alerta-details p {
+    margin: 0.3rem 0;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.no-data {
+    text-align: center;
+    padding: 3rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.no-data p {
+    color: #999;
+    font-size: 1.2rem;
+}

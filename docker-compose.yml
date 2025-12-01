@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  db:
+    build: ./database
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=vrisa_db
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+    networks:
+      - vrisa-network
+
+  backend:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_NAME=vrisa_db
+      - DB_USER=postgres
+      - DB_PASSWORD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DJANGO_SECRET_KEY=dev_secret_key
+      - DEBUG=True
+    networks:
+      - vrisa-network
+
+  frontend:
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000/api
+    stdin_open: true
+    tty: true
+    networks:
+      - vrisa-network
+
+volumes:
+  postgres_data:
+
+
+networks:
+  vrisa-network:
+    driver: bridge
