@@ -1,0 +1,30 @@
+.registro-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #f5f5f5;
+}
+
+.registro-card {
+    width: 100%;
+    max-width: 700px;
+    padding: 2rem;
+    border-radius: 12px;
+    background: white;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.registro-card h2 {
+    color: #00897b;
+    margin-bottom: 1rem;
+}
+
+.registro-card input,
+.registro-card select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}

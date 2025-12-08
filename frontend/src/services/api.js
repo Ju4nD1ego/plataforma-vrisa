@@ -1,31 +1,25 @@
-// API Service with Axios and JWT Interceptor
 import axios from 'axios';
 
 const API_URL = 'http://localhost:8000/api';
 
 const api = axios.create({
     baseURL: API_URL,
-    headers: {
-        'Content-Type': 'application/json',
-    },
+    headers: { 'Content-Type': 'application/json' },
 });
 
-// JWT Interceptor
-api.interceptors.request.use(
-    (config) => {
-        const token = localStorage.getItem('access_token');
-        if (token) {
-            config.headers.Authorization = `Bearer ${token}`;
-        }
-        return config;
-    },
-    (error) => Promise.reject(error)
-);
+// JWT interceptor
+api.interceptors.request.use((config) => {
+    const token = localStorage.getItem('access_token');
+    if (token) config.headers.Authorization = `Bearer ${token}`;
+    return config;
+});
 
-// Auth Services
+// AUTH
 export const authService = {
     login: async (email, password) => {
         const response = await api.post('/auth/login/', { email, password });
+
+        // Guardamos tokens y usuario en localStorage
         if (response.data.access) {
             localStorage.setItem('access_token', response.data.access);
             localStorage.setItem('refresh_token', response.data.refresh);
@@ -34,8 +28,8 @@ export const authService = {
         return response.data;
     },
 
-    register: async (userData) => {
-        const response = await api.post('/auth/register/', userData);
+    register: async (data) => {
+        const response = await api.post('/auth/register/', data);
         return response.data;
     },
 
@@ -48,65 +42,64 @@ export const authService = {
     getCurrentUser: () => {
         const user = localStorage.getItem('user');
         return user ? JSON.parse(user) : null;
-    }
+    },
+};
+// USUARIO
+export const usuarioService = {
+    getAll: () => api.get('/usuario/'),
+    getById: (id) => api.get(`/usuario/${id}/`),
 };
 
-// Institution Services
+// INSTITUCION
 export const institucionService = {
-    getAll: () => api.get('/instituciones/'),
-    getById: (id) => api.get(`/instituciones/${id}/`),
-    create: (data) => api.post('/instituciones/', data),
-    update: (id, data) => api.put(`/instituciones/${id}/`, data),
-    delete: (id) => api.delete(`/instituciones/${id}/`),
+    getAll: () => api.get('/institucion/'),
+    create: (data) => api.post('/institucion/', data),
 };
 
-// Solicitud Institucion Services
+// SOLICITUD INSTITUCION
 export const solicitudInstitucionService = {
-    getAll: () => api.get('/solicitudes/instituciones/'),
-    create: (data) => api.post('/solicitudes/instituciones/', data),
-    aprobar: (id) => api.patch(`/solicitudes/instituciones/${id}/aprobar/`),
+    getAll: () => api.get('/solicitudinstitucion/'),
+    create: (data) => api.post('/solicitudinstitucion/', data),
+    aprobar: (id) => api.patch(`/solicitudinstitucion/${id}/aprobar/`),
 };
 
-// Station Services
+// ESTACION
 export const estacionService = {
-    getAll: () => api.get('/estaciones/'),
-    getById: (id) => api.get(`/estaciones/${id}/`),
-    create: (data) => api.post('/estaciones/', data),
-    update: (id, data) => api.put(`/estaciones/${id}/`, data),
-    delete: (id) => api.delete(`/estaciones/${id}/`),
+    getAll: () => api.get('/estacion/'),
+    create: (data) => api.post('/estacion/', data),
 };
 
-// Solicitud Estacion Services
+// SOLICITUD ESTACION
 export const solicitudEstacionService = {
-    getAll: () => api.get('/solicitudes/estaciones/'),
-    create: (data) => api.post('/solicitudes/estaciones/', data),
-    aprobar: (id) => api.patch(`/solicitudes/estaciones/${id}/aprobar/`),
+    getAll: () => api.get('/solicitudestacion/'),
+    create: (data) => api.post('/solicitudestacion/', data),
+    aprobar: (id) => api.patch(`/solicitudestacion/${id}/aprobar/`),
 };
 
-// Variable Services
+// VARIABLES
 export const variableService = {
-    getAll: () => api.get('/variables/'),
+    getAll: () => api.get('/variable/'),
 };
 
-// Sensor Services
+// SENSORES
 export const sensorService = {
-    getAll: () => api.get('/sensores/'),
-    create: (data) => api.post('/sensores/', data),
+    getAll: () => api.get('/sensor/'),
+    create: (data) => api.post('/sensor/', data),
 };
 
-// Medicion Services
+// MEDICIONES
 export const medicionService = {
     getAll: () => api.get('/mediciones/'),
     getUltimas: () => api.get('/mediciones/ultimas/'),
-    create: (data) => api.post('/mediciones/', data),
 };
 
-// Alerta Services
+// ALERTAS
 export const alertaService = {
     getAll: () => api.get('/alertas/'),
 };
 
-// Reporte Services
+
+// REPORTES
 export const reporteService = {
     getAll: () => api.get('/reportes/'),
     create: (data) => api.post('/reportes/', data),
