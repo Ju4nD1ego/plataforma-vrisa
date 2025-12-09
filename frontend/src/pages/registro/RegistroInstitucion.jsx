@@ -65,9 +65,10 @@ function RegistroInstitucion() {
             };
 
             console.log("Creando usuario...", userPayload);
-            const userResponse = await authService.register(userPayload);
-            const newUserId = userResponse.data.id_usuario; // Asumiendo que el backend devuelve el objeto creado
-
+            const newUser = await authService.register(userPayload);
+            console.log("Respuesta backend usuario:", newUser);
+            const newUserId = newUser.id_usuario; // Asumiendo que el backend devuelve el objeto creado
+            
             if (!newUserId) {
                 throw new Error("El backend no devolvió el ID del usuario creado");
             }

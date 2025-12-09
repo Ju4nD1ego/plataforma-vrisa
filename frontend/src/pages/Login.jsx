@@ -14,14 +14,35 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         setError('');
+
         try {
-            await authService.login(email, password);
-            navigate('/dashboard');
+            // 1. Hacemos login
+            const data = await authService.login(email, password);
+
+            // 2. Obtenemos el usuario (del response o del localStorage)
+            const user = data?.user || authService.getCurrentUser();
+
+            if (!user) {
+                setError('No se pudo obtener el usuario. Intenta de nuevo.');
+                return;
+            }
+
+            // 3. Redirigimos según su tipo de usuario
+            if (user.tipo_usuario === 'CIUDADANO') {
+                navigate('/dashboard-ciudadano');
+            } else if (user.tipo_usuario === 'INSTITUCION') {
+                navigate('/dashboard-institucion');
+            } else if (user.tipo_usuario === 'OPERADOR') {
+                navigate('/dashboard-estacion');
+            } else {
+                // Por si acaso llega un tipo raro, lo mandamos a un dashboard por defecto
+                navigate('/dashboard-ciudadano');
+            }
         } catch (err) {
+            console.error(err);
             setError('Credenciales inválidas');
         }
     };
-
 
     return (
         <div className="login-container">

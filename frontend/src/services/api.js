@@ -14,36 +14,39 @@ api.interceptors.request.use((config) => {
     return config;
 });
 
-// AUTH
+// services/api.js
 export const authService = {
-    login: async (email, password) => {
-        const response = await api.post('/auth/login/', { email, password });
+  login: async (email, password) => {
+    const response = await api.post('/auth/login/', {
+      email: email,
+      password: password,
+    });
 
-        // Guardamos tokens y usuario en localStorage
-        if (response.data.access) {
-            localStorage.setItem('access_token', response.data.access);
-            localStorage.setItem('refresh_token', response.data.refresh);
-            localStorage.setItem('user', JSON.stringify(response.data.user));
-        }
-        return response.data;
-    },
+    if (response.data.access) {
+      localStorage.setItem('access_token', response.data.access);
+      localStorage.setItem('refresh_token', response.data.refresh);
+      localStorage.setItem('user', JSON.stringify(response.data.user));
+    }
+    return response.data;
+  },
 
-    register: async (data) => {
-        const response = await api.post('/auth/register/', data);
-        return response.data;
-    },
+  register: async (data) => {
+    const response = await api.post('/auth/register/', data);
+    return response.data;
+  },
 
-    logout: () => {
-        localStorage.removeItem('access_token');
-        localStorage.removeItem('refresh_token');
-        localStorage.removeItem('user');
-    },
+  logout: () => {
+    localStorage.removeItem('access_token');
+    localStorage.removeItem('refresh_token');
+    localStorage.removeItem('user');
+  },
 
-    getCurrentUser: () => {
-        const user = localStorage.getItem('user');
-        return user ? JSON.parse(user) : null;
-    },
+  getCurrentUser: () => {
+    const user = localStorage.getItem('user');
+    return user ? JSON.parse(user) : null;
+  },
 };
+
 // USUARIO
 export const usuarioService = {
     getAll: () => api.get('/usuario/'),
@@ -58,9 +61,9 @@ export const institucionService = {
 
 // SOLICITUD INSTITUCION
 export const solicitudInstitucionService = {
-    getAll: () => api.get('/solicitudinstitucion/'),
-    create: (data) => api.post('/solicitudinstitucion/', data),
-    aprobar: (id) => api.patch(`/solicitudinstitucion/${id}/aprobar/`),
+    getAll: () => api.get('/solicitudes/instituciones/'),
+    create: (data) => api.post('/solicitudes/instituciones/', data),
+    aprobar: (id) => api.patch(`/solicitudes/instituciones/${id}/aprobar/`),
 };
 
 // ESTACION
@@ -71,10 +74,11 @@ export const estacionService = {
 
 // SOLICITUD ESTACION
 export const solicitudEstacionService = {
-    getAll: () => api.get('/solicitudestacion/'),
-    create: (data) => api.post('/solicitudestacion/', data),
-    aprobar: (id) => api.patch(`/solicitudestacion/${id}/aprobar/`),
+    getAll: () => api.get('/solicitudes/estaciones/'),
+    create: (data) => api.post('/solicitudes/estaciones/', data),
+    aprobar: (id) => api.patch(`/solicitudes/estaciones/${id}/aprobar/`),
 };
+
 
 // VARIABLES
 export const variableService = {

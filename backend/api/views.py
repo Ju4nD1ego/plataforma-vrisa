@@ -3,6 +3,7 @@ from rest_framework.decorators import action
 from rest_framework.response import Response
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth.hashers import check_password, make_password
+from rest_framework.permissions import AllowAny
 from .models import (
     Usuario, Institucion, SolicitudInstitucion, Estacion, 
     SolicitudEstacion, Variable, Sensor, Medicion, Alerta, Reporte
@@ -14,7 +15,11 @@ from .serializers import (
 )
 
 class AuthView(views.APIView):
+    permission_classes = [AllowAny]
     def post(self, request):
+
+        
+
         email = request.data.get('email')
         password = request.data.get('password')
         
@@ -37,13 +42,17 @@ class AuthView(views.APIView):
             })
         return Response({'error': 'Invalid credentials'}, status=status.HTTP_401_UNAUTHORIZED)
 
+
 class RegisterView(views.APIView):
+    permission_classes = [AllowAny]
+
     def post(self, request):
         serializer = UsuarioSerializer(data=request.data)
         if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
+            user = serializer.save()
+            return Response(UsuarioSerializer(user).data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
 
 class UsuarioViewSet(viewsets.ModelViewSet):
     queryset = Usuario.objects.all()
