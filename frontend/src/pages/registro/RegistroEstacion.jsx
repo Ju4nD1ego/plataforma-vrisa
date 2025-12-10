@@ -33,29 +33,17 @@ function RegistroEstacion() {
 
     // 1. Cargar las instituciones apenas abra la página
 useEffect(() => {
-        // Simulamos que el backend nos respondió correctamente
-        const institucionesFalsas = [
-            { id_institucion: 1, nombre: "Institución DAGMA (Prueba)" },
-            { id_institucion: 2, nombre: "CVC Valle (Prueba)" },
-            { id_institucion: 3, nombre: "Universidad del Valle (Prueba)" }
-        ];
-        
-        console.log("Usando datos falsos de instituciones por error en backend");
-        setInstituciones(institucionesFalsas);
-        
-        // Comentamos la llamada real que está fallando
-        /* const fetchInstituciones = async () => {
-            try {
-                const response = await institucionService.getAll();
-                setInstituciones(response.data);
-            } catch (err) {
-                console.error("Error cargando instituciones", err);
-                setError("No se pudieron cargar las instituciones. Intente más tarde.");
-            }
-        };
-        fetchInstituciones(); 
-        */
-    }, []);
+    // Definimos la lista de instituciones disponibles (hardcoded para la demo)
+    const institucionesDisponibles = [
+        { id_institucion: 1, nombre: "DAGMA Oficial" }
+    ];
+    
+    console.log("Cargando instituciones por defecto...");
+    setInstituciones(institucionesDisponibles);
+
+    // NOTA: Aquí iría la llamada real al backend:
+    // institucionService.getAll().then(res => setInstituciones(res.data));
+}, []);
 
     const handleChange = (e) => {
         setFormData({
@@ -92,7 +80,7 @@ useEffect(() => {
 
             console.log("Creando usuario responsable...", userPayload);
             const userResponse = await authService.register(userPayload);
-            const newUserId = userResponse.data.id_usuario;
+            const newUserId = userResponse.id_usuario;
 
             // PASO 2: Crear la Solicitud de Estación
             const estacionPayload = {
