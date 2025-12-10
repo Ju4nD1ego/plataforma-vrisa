@@ -92,9 +92,21 @@ export const sensorService = {
 };
 
 // MEDICIONES
+// MEDICIONES
 export const medicionService = {
     getAll: () => api.get('/mediciones/'),
     getUltimas: () => api.get('/mediciones/ultimas/'),
+    
+    // AGREGA ESTA FUNCIÓN para cumplir el requisito de "Filtrar y seleccionar días"
+    getByFiltros: (estacionId, fechaInicio, fechaFin) => {
+        let params = new URLSearchParams();
+        if (estacionId) params.append('estacion', estacionId);
+        if (fechaInicio) params.append('fecha_inicio', fechaInicio);
+        if (fechaFin) params.append('fecha_fin', fechaFin);
+        
+        // Esto llamará a: /mediciones/?estacion=1&fecha_inicio=2023-01-01...
+        return api.get(`/mediciones/?${params.toString()}`);
+    }
 };
 
 // ALERTAS
