@@ -1,9 +1,6 @@
 # Proyecto Final - Bases de datos
 ### Aplicación VriSA
 
-<p align="center">
-  <img src="Images/LogoSimboloUV.png" alt="Logo Universidad Del Valle" width="100" height="120">
-</p>
 
 <p align="center">
   <strong>Universidad del Valle</strong><br>
