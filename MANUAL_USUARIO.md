@@ -1,6 +1,6 @@
 # Manual de Usuario - VRISA Platform
 
-## 🎯 ¿Cómo Funciona la Plataforma?
+##  ¿Cómo Funciona la Plataforma?
 
 VRISA es un sistema para monitorear la calidad del aire. Aquí te explico paso a paso cómo usarlo:
 
@@ -36,7 +36,7 @@ VRISA es un sistema para monitorear la calidad del aire. Aquí te explico paso a
 
 ---
 
-## 🏠 Paso 2: Dashboard (Pantalla Principal)
+##  Paso 2: Dashboard (Pantalla Principal)
 
 El Dashboard muestra:
 
@@ -66,7 +66,7 @@ En la barra superior puedes ir a:
 
 ---
 
-## 🏢 Paso 3: Gestión de Instituciones
+##  Paso 3: Gestión de Instituciones
 
 ### Ver Instituciones Activas
 1. Click en **"Instituciones"** en el navbar
@@ -89,7 +89,7 @@ En la barra superior puedes ir a:
 
 ---
 
-## 📍 Paso 4: Gestión de Estaciones
+##  Paso 4: Gestión de Estaciones
 
 ### Ver Estaciones Activas
 1. Click en **"Estaciones"** en el navbar
@@ -114,7 +114,7 @@ Similar al proceso de instituciones.
 
 ---
 
-## ⚠️ Paso 5: Ver Alertas
+## Paso 5: Ver Alertas
 
 1. Click en **"Alertas"** en el navbar
 2. Usa los botones de filtro:
@@ -136,10 +136,10 @@ Similar al proceso de instituciones.
 
 1. Click en **"Reportes"** en el navbar
 2. Verás 4 tipos de reportes disponibles:
-   - 📊 **Calidad del Aire**: Análisis detallado
-   - 📈 **Tendencias**: Patrones a lo largo del tiempo
-   - ⚠️ **Alertas Críticas**: Resumen de eventos importantes
-   - 🏗️ **Infraestructura**: Estado de estaciones y sensores
+   - **Calidad del Aire**: Análisis detallado
+   - **Tendencias**: Patrones a lo largo del tiempo
+   - **Alertas Críticas**: Resumen de eventos importantes
+   - **Infraestructura**: Estado de estaciones y sensores
 
 ### Generar un Reporte
 1. Selecciona el **Tipo de Reporte**
@@ -150,7 +150,7 @@ Similar al proceso de instituciones.
 
 ---
 
-## 🔬 Paso 7: ¿Cómo Subir Datos?
+##  Paso 7: ¿Cómo Subir Datos?
 
 ### Opción 1: Usar la API Directamente
 
@@ -222,7 +222,7 @@ requests.post('http://localhost:8000/api/mediciones/',
 
 ---
 
-## 📈 Flujo Completo de Uso
+## Flujo Completo de Uso
 
 ### Escenario: Monitorear Calidad del Aire en tu Ciudad
 
@@ -240,7 +240,7 @@ requests.post('http://localhost:8000/api/mediciones/',
 
 ---
 
-## 🎓 Datos de Prueba
+##  Datos de Prueba
 
 Para probar rápidamente, puedes usar estos datos:
 
@@ -260,7 +260,7 @@ Para probar rápidamente, puedes usar estos datos:
 
 ---
 
-## ❓ Preguntas Frecuentes
+## Preguntas Frecuentes
 
 **P: ¿Por qué no veo datos en el dashboard?**
 R: Porque la base de datos está vacía al inicio. Necesitas crear instituciones, estaciones y mediciones primero.
@@ -276,18 +276,11 @@ R: Sí, edita los archivos CSS en `frontend/src/pages/`.
 
 ---
 
-## 🔗 Enlaces Útiles
+## Enlaces Útiles
 
 - Frontend: http://localhost:3000
 - Backend API: http://localhost:8000/api/
 - Admin Django: http://localhost:8000/admin/
 - Documentación API: http://localhost:8000/api/ (navegable)
 
----
-
-## 🎬 Video Tutorial (Opcional)
-
-Si quieres crear un video tutorial para tu equipo:
-1. Graba tu pantalla mientras sigues estos pasos
-2. Muestra cómo registrarse, crear instituciones, y ver el dashboard
-3. Comparte el video con tus compañeros
+-
