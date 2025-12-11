@@ -1,4 +1,52 @@
-# VRISA Platform - Sistema de Vigilancia de Riesgos e Inmisiones de Sustancias Atmosféricas
+# Proyecto Final - Bases de datos
+### Aplicación VriSA
+
+<p align="center">
+  <img src="Images/LogoSimboloUV.png" alt="Logo Universidad Del Valle" width="100" height="120">
+</p>
+
+<p align="center">
+  <strong>Universidad del Valle</strong><br>
+  Escuela de Ingeniería de Sistemas y Computación<br>
+  Profesor: Jefferson Amado Peña Torres<br>
+  Diciembre de 2025
+</p>
+
+---
+
+## Autores
+
+- **Juan Marin Orozco** - 2422117
+- **Sara Giraldo Mosquera** 2417149
+- **Isabella Bermúdez** - 2418564
+- **Brandon Alexis Franco Flor** - 2435998
+- **Juan Diego Ledezma** - 2540088
+
+---
+
+## Descripción del Proyecto
+
+Este proyecto implementa modificaciones al sistema operativo educativo **xv6**, enfocándose en dos componentes:
+
+
+
+## Video de Sustentación
+
+[Enlace al video en YouTube](https://youtu.be/Ox20XBcWdM8)
+
+---
+
+## Documentación
+
+### Informe Técnico Completo
+
+[Informe Técnico]().
+
+**Contenido del informe:**
+
+
+
+#  VRISA Platform - Sistema de Vigilancia de Riesgos e Inmisiones de Sustancias Atmosféricas
 
 Plataforma completa de monitoreo de calidad del aire desarrollada con Django REST Framework, React y PostgreSQL.
 
