@@ -2,7 +2,7 @@
 
 Plataforma completa de monitoreo de calidad del aire desarrollada con Django REST Framework, React y PostgreSQL.
 
-## 🚀 Características
+##  Características
 
 - **Sistema de Autenticación JWT** con 5 roles de usuario (Administrador, Institución, Operador, Investigador, Ciudadano)
 - **Gestión de Instituciones** con flujo de solicitud y aprobación
@@ -12,7 +12,7 @@ Plataforma completa de monitoreo de calidad del aire desarrollada con Django RES
 - **Sistema de Alertas** con niveles (Buena, Moderada, Dañina, Peligrosa)
 - **Generación de Reportes** (Calidad del Aire, Tendencias, Alertas Críticas, Infraestructura)
 
-## 📋 Requisitos Previos
+##  Requisitos Previos
 
 - Docker Desktop instalado
 - Docker Compose
@@ -24,7 +24,7 @@ Plataforma completa de monitoreo de calidad del aire desarrollada con Django RES
 - **[populate_test_data.py](populate_test_data.py)** - Script para crear datos de prueba automáticamente
 
 
-## �🛠️ Instalación y Despliegue
+##  Instalación y Despliegue
 
 ### 1. Clonar el repositorio
 ```bash
@@ -103,7 +103,7 @@ vrisa-project/
 └── README.md
 ```
 
-## 🔑 Endpoints API Principales
+##  Endpoints API Principales
 
 ### Autenticación
 - `POST /api/auth/login/` - Login con email y contraseña
@@ -131,7 +131,7 @@ vrisa-project/
 ### Reportes
 - `GET/POST /api/reportes/` - Generación de reportes
 
-## 🎨 Páginas Frontend
+##  Páginas Frontend
 
 1. **Login/Registro** - Autenticación de usuarios
 2. **Dashboard** - Vista general con gráficos y estadísticas
@@ -140,7 +140,7 @@ vrisa-project/
 5. **Alertas** - Visualización de alertas con filtros
 6. **Reportes** - Generación de reportes personalizados
 
-## 🔧 Configuración
+##  Configuración
 
 ### Variables de Entorno
 
@@ -162,7 +162,7 @@ La base de datos se inicializa automáticamente con:
 - Esquema completo (10 tablas)
 - 12 variables atmosféricas predefinidas (6 contaminantes + 6 meteorológicas)
 
-## 🧪 Testing
+##  Testing
 
 Para probar la aplicación:
 
@@ -173,7 +173,7 @@ Para probar la aplicación:
 5. Crea una estación asociada a la institución
 6. Visualiza el dashboard con datos
 
-## 🐛 Troubleshooting
+##  Troubleshooting
 
 ### El backend no se conecta a la base de datos
 - Verifica que el servicio `db` esté corriendo: `docker-compose ps`
@@ -187,14 +187,14 @@ Para probar la aplicación:
 - En Windows, asegúrate de que Docker Desktop tenga permisos
 - Ejecuta Docker Desktop como administrador si es necesario
 
-## 📝 Notas Técnicas
+##  Notas Técnicas
 
 - Los modelos Django usan `managed=False` para no interferir con el esquema SQL existente
 - Las contraseñas se almacenan en texto plano para compatibilidad con el esquema legacy (en producción usar hashing)
 - El frontend usa Chart.js para visualizaciones
 - JWT tokens tienen validez de 60 minutos
 
-## 👥 Roles de Usuario
+##  Roles de Usuario
 
 - **ADMINISTRADOR**: Aprueba instituciones y estaciones
 - **INSTITUCION**: Gestiona sus estaciones
@@ -202,14 +202,7 @@ Para probar la aplicación:
 - **INVESTIGADOR**: Consulta datos y genera reportes
 - **CIUDADANO**: Consulta información pública
 
-## 📄 Licencia
 
-Proyecto académico - Universidad [Nombre]
 
-## 🤝 Contribuciones
 
-Este es un proyecto académico. Para contribuir, contacta al equipo de desarrollo.
 
----
-
-**Desarrollado para el monitoreo de calidad del aire**
