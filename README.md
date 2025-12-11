@@ -21,11 +21,6 @@
 
 ---
 
-## Descripción del Proyecto
-
-Este proyecto implementa modificaciones al sistema operativo educativo **xv6**, enfocándose en dos componentes:
-
-
 
 ## Video de Sustentación
 
@@ -39,8 +34,10 @@ Este proyecto implementa modificaciones al sistema operativo educativo **xv6**, 
 
 [Informe Técnico]().
 
-**Contenido del informe:**
 
+
+
+**Implementacion del proyecto:**
 
 
 #  VRISA Platform - Sistema de Vigilancia de Riesgos e Inmisiones de Sustancias Atmosféricas
