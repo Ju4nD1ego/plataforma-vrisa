@@ -32,7 +32,7 @@
 
 ### Informe Técnico Completo
 
-[Informe Técnico](https://drive.google.com/file/d/1KPW3nPEh-Ss_iIMsIFJrxV95BdC8wGEu/view?usp=sharing).
+[Informe Técnico](https://drive.google.com/file/d/1eU2SQ9g0s6YMRItAICJyEfgvj9hOAH78/view?usp=sharing).
 
 
 
